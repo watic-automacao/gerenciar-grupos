@@ -698,11 +698,16 @@ function App() {
                           </div>
 
                           <div className="mt-auto pt-2 flex flex-col gap-3">
-                            <div className="flex items-baseline gap-2">
-                              <span className="text-orange-500 font-bold text-lg">R$ {product.price}</span>
-                              {product.priceMax !== product.priceMin && (
-                                <span className="text-gray-500 text-[10px] line-through">R$ {product.priceMax}</span>
+                            <div className="flex flex-col">
+                              {parseFloat(product.priceMax) > parseFloat(product.price) && (
+                                <span className="text-gray-500 text-[10px] line-through">
+                                  De R$ {product.priceMax}
+                                </span>
                               )}
+                              <div className="flex items-baseline gap-1">
+                                <span className="text-gray-400 text-xs font-medium">por</span>
+                                <span className="text-orange-500 font-bold text-xl">R$ {product.price}</span>
+                              </div>
                             </div>
                             
                             <div className="flex flex-col gap-1 text-[10px] text-green-500 font-medium">
